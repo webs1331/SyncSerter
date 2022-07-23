@@ -32,20 +32,22 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.btnBrowseLeft = new System.Windows.Forms.Button();
+            this.btnBrowseRight = new System.Windows.Forms.Button();
+            this.lblInstructions = new System.Windows.Forms.Label();
+            this.txtLeftFolder = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.lblButton = new System.Windows.Forms.Label();
-            this.lblButton2 = new System.Windows.Forms.Label();
-            this.btnBrowse1 = new System.Windows.Forms.Button();
-            this.btnBrowse2 = new System.Windows.Forms.Button();
-            this.lblInstructions = new System.Windows.Forms.Label();
+            this.txtRightFolder = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(442, 302);
+            this.btnCancel.Location = new System.Drawing.Point(432, 139);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 0;
@@ -55,107 +57,123 @@
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(361, 302);
+            this.btnNext.Location = new System.Drawing.Point(355, 139);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 1;
             this.btnNext.TabStop = false;
-            this.btnNext.Text = "Next ";
+            this.btnNext.Text = "Next >";
             this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(280, 302);
+            this.btnBack.Enabled = false;
+            this.btnBack.Location = new System.Drawing.Point(274, 139);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
             this.btnBack.TabIndex = 2;
             this.btnBack.TabStop = false;
-            this.btnBack.Text = "Back ";
+            this.btnBack.Text = "< Back ";
             this.btnBack.UseVisualStyleBackColor = true;
+            // 
+            // btnBrowseLeft
+            // 
+            this.btnBrowseLeft.Location = new System.Drawing.Point(36, 88);
+            this.btnBrowseLeft.Name = "btnBrowseLeft";
+            this.btnBrowseLeft.Size = new System.Drawing.Size(216, 23);
+            this.btnBrowseLeft.TabIndex = 7;
+            this.btnBrowseLeft.TabStop = false;
+            this.btnBrowseLeft.Text = "Browse...";
+            this.btnBrowseLeft.UseVisualStyleBackColor = true;
+            // 
+            // btnBrowseRight
+            // 
+            this.btnBrowseRight.Location = new System.Drawing.Point(305, 89);
+            this.btnBrowseRight.Name = "btnBrowseRight";
+            this.btnBrowseRight.Size = new System.Drawing.Size(202, 23);
+            this.btnBrowseRight.TabIndex = 8;
+            this.btnBrowseRight.TabStop = false;
+            this.btnBrowseRight.Text = "Browse...";
+            this.btnBrowseRight.UseVisualStyleBackColor = true;
+            // 
+            // lblInstructions
+            // 
+            this.lblInstructions.AutoSize = true;
+            this.lblInstructions.Location = new System.Drawing.Point(12, 9);
+            this.lblInstructions.Name = "lblInstructions";
+            this.lblInstructions.Size = new System.Drawing.Size(150, 15);
+            this.lblInstructions.TabIndex = 9;
+            this.lblInstructions.Text = "Choose the folders to sync:";
+            // 
+            // txtLeftFolder
+            // 
+            this.txtLeftFolder.Location = new System.Drawing.Point(36, 59);
+            this.txtLeftFolder.Name = "txtLeftFolder";
+            this.txtLeftFolder.Size = new System.Drawing.Size(216, 23);
+            this.txtLeftFolder.TabIndex = 10;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(111, 100);
+            this.pictureBox1.Location = new System.Drawing.Point(5, 58);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(70, 51);
-            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.Size = new System.Drawing.Size(25, 24);
+            this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(366, 100);
+            this.pictureBox2.Location = new System.Drawing.Point(274, 58);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(70, 51);
-            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.Size = new System.Drawing.Size(25, 24);
+            this.pictureBox2.TabIndex = 13;
             this.pictureBox2.TabStop = false;
             // 
-            // lblButton
+            // txtRightFolder
             // 
-            this.lblButton.AutoSize = true;
-            this.lblButton.Location = new System.Drawing.Point(111, 171);
-            this.lblButton.Name = "lblButton";
-            this.lblButton.Size = new System.Drawing.Size(49, 15);
-            this.lblButton.TabIndex = 5;
-            this.lblButton.Text = "Folder 1";
+            this.txtRightFolder.Location = new System.Drawing.Point(305, 60);
+            this.txtRightFolder.Name = "txtRightFolder";
+            this.txtRightFolder.Size = new System.Drawing.Size(202, 23);
+            this.txtRightFolder.TabIndex = 11;
             // 
-            // lblButton2
+            // label1
             // 
-            this.lblButton2.AutoSize = true;
-            this.lblButton2.Location = new System.Drawing.Point(366, 171);
-            this.lblButton2.Name = "lblButton2";
-            this.lblButton2.Size = new System.Drawing.Size(49, 15);
-            this.lblButton2.TabIndex = 6;
-            this.lblButton2.Text = "Folder 2";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(36, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 15);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Left Folder:";
             // 
-            // btnBrowse1
+            // label2
             // 
-            this.btnBrowse1.Location = new System.Drawing.Point(111, 217);
-            this.btnBrowse1.Name = "btnBrowse1";
-            this.btnBrowse1.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse1.TabIndex = 7;
-            this.btnBrowse1.TabStop = false;
-            this.btnBrowse1.Text = "Browse";
-            this.btnBrowse1.UseVisualStyleBackColor = true;
-            // 
-            // btnBrowse2
-            // 
-            this.btnBrowse2.Location = new System.Drawing.Point(361, 217);
-            this.btnBrowse2.Name = "btnBrowse2";
-            this.btnBrowse2.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse2.TabIndex = 8;
-            this.btnBrowse2.TabStop = false;
-            this.btnBrowse2.Text = "Browse ";
-            this.btnBrowse2.UseVisualStyleBackColor = true;
-            // 
-            // lblInstructions
-            // 
-            this.lblInstructions.AutoSize = true;
-            this.lblInstructions.Location = new System.Drawing.Point(111, 38);
-            this.lblInstructions.Name = "lblInstructions";
-            this.lblInstructions.Size = new System.Drawing.Size(154, 15);
-            this.lblInstructions.TabIndex = 9;
-            this.lblInstructions.Text = "Please select folders for use:";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(305, 42);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 15);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Right Folder:";
             // 
             // CreatePairForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(541, 337);
-            this.Controls.Add(this.lblInstructions);
-            this.Controls.Add(this.btnBrowse2);
-            this.Controls.Add(this.btnBrowse1);
-            this.Controls.Add(this.lblButton2);
-            this.Controls.Add(this.lblButton);
+            this.ClientSize = new System.Drawing.Size(519, 174);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.txtRightFolder);
+            this.Controls.Add(this.txtLeftFolder);
+            this.Controls.Add(this.lblInstructions);
+            this.Controls.Add(this.btnBrowseRight);
+            this.Controls.Add(this.btnBrowseLeft);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnCancel);
             this.Name = "CreatePairForm";
-            this.Text = "CreatePairForm";
+            this.Text = "Create New Folder Pair (1 of 2)";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -168,12 +186,14 @@
         private Button btnCancel;
         private Button btnNext;
         private Button btnBack;
+        private Button btnBrowseLeft;
+        private Button btnBrowseRight;
+        private Label lblInstructions;
+        private TextBox txtLeftFolder;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
-        private Label lblButton;
-        private Label lblButton2;
-        private Button btnBrowse1;
-        private Button btnBrowse2;
-        private Label lblInstructions;
+        private TextBox txtRightFolder;
+        private Label label1;
+        private Label label2;
     }
 }

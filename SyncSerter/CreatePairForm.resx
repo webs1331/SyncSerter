@@ -60,10 +60,10 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAABvSURBVEhL7dQxDoAgDAVQjqfGQzl5UD2Gg/4OPyFpKzQsDP3Jm4B+ppbMVNnghtdxwFD+htNQ
-        CYfshhMeqMs88tEVVHjBKhCRkgtUeGgNj+AclSygLGjKgia3oGfZ9TJXhSwoObAeRMiMBTJTpJQPPq+s
-        kXl4ZkEAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAG9JREFUSEvt
+        1DEOgCAMBVCOp8ZDOXlQPYaD/g4/IWkrNCwM/cmbgH6mlsxU2eCG13HAUP6G01AJh+yGEx6oyzzy0RVU
+        eMEqEJGSC1R4aA2P4ByVLKAsaMqCJregZ9n1MleFLCg5sB5EyIwFMlOklA8+r6yReXhmQQAAAABJRU5E
+        rkJggg==
 </value>
   </data>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
