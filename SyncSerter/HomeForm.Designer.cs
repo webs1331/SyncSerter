@@ -58,6 +58,7 @@
             this.btnCreatePair.TabStop = false;
             this.btnCreatePair.Text = "Create Pair";
             this.btnCreatePair.UseVisualStyleBackColor = true;
+            this.btnCreatePair.Click += new System.EventHandler(this.btnCreatePair_Click);
             // 
             // lblLeftFolder
             // 
@@ -212,6 +213,7 @@
             this.Controls.Add(this.lstBoxPairs);
             this.Controls.Add(this.btnDeletePair);
             this.Name = "HomeForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HomeForm";
             this.Load += new System.EventHandler(this.HomeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
