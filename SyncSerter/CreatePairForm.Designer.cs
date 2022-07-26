@@ -44,14 +44,14 @@
             this.folderBrowserDialogRight = new System.Windows.Forms.FolderBrowserDialog();
             this.cbAllFilesIncluded = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cBoxSyncAction = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtExcludeFileType = new System.Windows.Forms.TextBox();
             this.btnAddFileType = new System.Windows.Forms.Button();
             this.btnRemoveFileType = new System.Windows.Forms.Button();
             this.lstExcludedFileTypes = new System.Windows.Forms.ListBox();
             this.cbExcludeHiddenFiles = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -179,7 +179,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cBoxSyncAction);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtExcludeFileType);
             this.groupBox1.Controls.Add(this.btnAddFileType);
@@ -193,6 +193,23 @@
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Options";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(302, 81);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 15);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Sync Action:";
+            // 
+            // cBoxSyncAction
+            // 
+            this.cBoxSyncAction.FormattingEnabled = true;
+            this.cBoxSyncAction.Location = new System.Drawing.Point(381, 78);
+            this.cBoxSyncAction.Name = "cBoxSyncAction";
+            this.cBoxSyncAction.Size = new System.Drawing.Size(115, 23);
+            this.cBoxSyncAction.TabIndex = 23;
             // 
             // label3
             // 
@@ -254,23 +271,6 @@
             this.cbExcludeHiddenFiles.Text = "Exclude Hidden Files";
             this.cbExcludeHiddenFiles.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(381, 78);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(115, 23);
-            this.comboBox1.TabIndex = 23;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(302, 81);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 15);
-            this.label4.TabIndex = 24;
-            this.label4.Text = "Sync Action:";
-            // 
             // CreatePairForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -288,9 +288,13 @@
             this.Controls.Add(this.btnBrowseLeft);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CreatePairForm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Create New Folder Pair";
+            this.Text = "Create New Folder NewPair";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.CreatePairForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -325,6 +329,6 @@
         private Button btnAddFileType;
         private Label label3;
         private Label label4;
-        private ComboBox comboBox1;
+        private ComboBox cBoxSyncAction;
     }
 }
