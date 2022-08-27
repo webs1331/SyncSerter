@@ -19,12 +19,13 @@ namespace SyncSerter
 
         private void HomeForm_Load(object sender, EventArgs e)
         {
-
+            //load pairs
         }
 
         private void btnRun_Click(object sender, EventArgs e)
         {
-
+            //TODO
+            //get currently selected pair from UI and execute
         }
 
         private void btnCreatePair_Click(object sender, EventArgs e)

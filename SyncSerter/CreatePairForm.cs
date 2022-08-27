@@ -1,5 +1,6 @@
 ﻿using System.Security;
 using Newtonsoft.Json;
+using SyncSerter.Data;
 
 namespace SyncSerter;
 
@@ -8,21 +9,32 @@ public partial class CreatePairForm : Form
     private readonly string PairDatabaseFilePath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, @"..\..\..\Data\Pairs.json"));
 
     private List<Pair> Pairs;
-    private Pair NewPair;
+    private Pair ActivePair;
 
     public CreatePairForm() => InitializeComponent();
 
-    private void CreatePairForm_Load(object sender, EventArgs e)
+
+    private string ValidatePair()
     {
-        NewPair = new Pair();
+        var message = string.Empty;
+
+        if (!File.Exists(ActivePair.LeftFolder)) message += "Left Folder could not be accessed or no longer exists. \n";
+        if (!File.Exists(ActivePair.RightFolder)) message += "Right Folder could not be accessed or no longer exists. \n";
+        if (ActivePair.Options.ActionType == default) message += "Please select an Action Type.";
+
+        return message;
+    }
+
+    //Events
+    private async Task CreatePairForm_Load(object sender, EventArgs e)
+    {
+        ActivePair = new Pair();
 
         if (File.Exists(PairDatabaseFilePath))
         {
             try
             {
-                var pairData = File.ReadAllText(PairDatabaseFilePath);
-
-                Pairs = JsonConvert.DeserializeObject<List<Pair>>(pairData);
+                var pairData = await DataHelper.ReadJSON<List<Pair>>(PairDatabaseFilePath);
             }
             catch (Exception ex)
             {
@@ -32,7 +44,7 @@ public partial class CreatePairForm : Form
         }
         else
         {
-            using var file = File.CreateText(PairDatabaseFilePath);
+            await using var file = File.CreateText(PairDatabaseFilePath);
             var serializer = new JsonSerializer();
             serializer.Serialize(file, new List<Pair>());
         }
@@ -42,29 +54,17 @@ public partial class CreatePairForm : Form
             .ToList();
     }
 
-    private string ValidatePair()
-    {
-        var message = string.Empty;
-
-        if (!File.Exists(NewPair.LeftFolder)) message += "Left Folder could not be accessed or no longer exists. \n";
-        if (!File.Exists(NewPair.RightFolder)) message += "Right Folder could not be accessed or no longer exists. \n";
-        if (NewPair.Options.ActionType == default) message += "Please select an Action Type.";
-
-        return message;
-    }
-
-    //Events
     private void btnBrowseLeft_Click(object sender, EventArgs e)
     {
         if (folderBrowserDialogLeft.ShowDialog() != DialogResult.OK) return;
 
         try
         {
-            txtLeftFolder.Text = NewPair.LeftFolder = folderBrowserDialogLeft.SelectedPath;
+            txtLeftFolder.Text = ActivePair.LeftFolder = folderBrowserDialogLeft.SelectedPath;
         }
         catch (SecurityException ex)
         {
-            MessageBox.Show($"Security error.\n\nError message: {ex.Message}\n\n" + $"Details:\n\n{ex.StackTrace}");
+            MessageBox.Show($"Security error.\n\nError message: {ex.Message}\n\nDetails:\n\n{ex.StackTrace}");
         }
     }
 
@@ -73,11 +73,11 @@ public partial class CreatePairForm : Form
         if (folderBrowserDialogRight.ShowDialog() != DialogResult.OK) return;
         try
         {
-            txtRightFolder.Text = NewPair.RightFolder = folderBrowserDialogRight.SelectedPath;
+            txtRightFolder.Text = ActivePair.RightFolder = folderBrowserDialogRight.SelectedPath;
         }
         catch (SecurityException ex)
         {
-            MessageBox.Show($"Security error.\n\nError message: {ex.Message}\n\n" + $"Details:\n\n{ex.StackTrace}");
+            MessageBox.Show($"Security error.\n\nError message: {ex.Message}\n\nDetails:\n\n{ex.StackTrace}");
         }
     }
 
@@ -85,18 +85,18 @@ public partial class CreatePairForm : Form
 
     private void btnSave_Click(object sender, EventArgs e)
     {
-        this.NewPair = new Pair();
+        this.ActivePair = new Pair();
 
-        NewPair.LeftFolder = txtLeftFolder.Text;
-        NewPair.RightFolder = txtRightFolder.Text;
-        NewPair.Options = new PairOptions
+        ActivePair.LeftFolder = txtLeftFolder.Text;
+        ActivePair.RightFolder = txtRightFolder.Text;
+        ActivePair.Options = new PairOptions
         {
             AllFilesIncluded = cbAllFilesIncluded.Checked,
             ActionType = (ActionType)cBoxSyncAction.SelectedValue,
             ExcludedFileTypes = new List<string>()
         };
 
-        foreach (var t in lstExcludedFileTypes.Items) NewPair.Options.ExcludedFileTypes.Add(t.ToString());
+        foreach (var t in lstExcludedFileTypes.Items) ActivePair.Options.ExcludedFileTypes.Add(t.ToString());
 
         var message = ValidatePair();
         if (!string.IsNullOrEmpty(message))
@@ -105,7 +105,7 @@ public partial class CreatePairForm : Form
             return;
         }
 
-        Pairs.Add(NewPair);
+        this.Pairs.Add(ActivePair);
 
         var pairsJson = JsonConvert.SerializeObject(Pairs);
 
