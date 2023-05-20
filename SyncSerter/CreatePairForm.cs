@@ -26,7 +26,7 @@ public partial class CreatePairForm : Form
     }
 
     //Events
-    private async Task CreatePairForm_Load(object sender, EventArgs e)
+    private void CreatePairForm_Load(object sender, EventArgs e)
     {
         ActivePair = new Pair();
 
@@ -34,7 +34,7 @@ public partial class CreatePairForm : Form
         {
             try
             {
-                var pairData = await DataHelper.ReadJSON<List<Pair>>(PairDatabaseFilePath);
+                var pairData = DataHelper.ReadJSON<List<Pair>>(PairDatabaseFilePath);
             }
             catch (Exception ex)
             {
@@ -44,7 +44,7 @@ public partial class CreatePairForm : Form
         }
         else
         {
-            await using var file = File.CreateText(PairDatabaseFilePath);
+            using var file = File.CreateText(PairDatabaseFilePath);
             var serializer = new JsonSerializer();
             serializer.Serialize(file, new List<Pair>());
         }
